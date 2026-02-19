@@ -11,7 +11,7 @@ const images = [
 
 const Gallery = () => {
     return (
-        <section id="gallery" className="py-24 px-8 bg-transparent">
+        <section id="gallery" className="py-24 px-8 experience-gradient">
             <div className="container mx-auto">
                 <h2 className="reveal text-center text-4xl mb-4 font-heading font-bold">The Experience</h2>
                 <p className="reveal delay-1 text-center text-text-muted mb-12 max-w-xl mx-auto font-body">
