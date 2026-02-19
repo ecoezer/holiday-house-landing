@@ -13,14 +13,14 @@ const Amenities = () => {
     return (
         <section id="amenities" style={{ padding: '6rem 2rem' }}>
             <div className="container">
-                <h2 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '3.5rem' }}>Curated Amenities</h2>
+                <h2 className="reveal" style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '3.5rem' }}>Curated Amenities</h2>
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                     gap: '2.5rem'
                 }}>
                     {amenities.map((item, idx) => (
-                        <div key={idx} className="glass-card" style={{ textAlign: 'left', backgroundColor: '#fff', border: 'none', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
+                        <div key={idx} className={`glass-card hover-lift reveal delay-${(idx % 5) + 1}`} style={{ textAlign: 'left', backgroundColor: '#fff', border: 'none', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
                             <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem', color: 'var(--primary)' }}>{item.title}</h3>
                             <p style={{ color: 'var(--text-muted)' }}>{item.desc}</p>
                         </div>

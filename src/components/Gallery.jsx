@@ -13,9 +13,9 @@ const Gallery = () => {
     return (
         <section id="gallery" style={{ padding: '6rem 2rem', backgroundColor: '#f9f9f9' }}>
             <div className="container">
-                <h2 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '1rem' }}>The Experience</h2>
-                <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem' }}>
-                    Every corner of Lumina House is designed to offer comfort and elegance. Explore our spaces.
+                <h2 className="reveal" style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '1rem' }}>The Experience</h2>
+                <p className="reveal delay-1" style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem' }}>
+                    Every corner of our house is designed to offer comfort and elegance. Explore our spaces.
                 </p>
                 <div style={{
                     display: 'grid',
@@ -23,18 +23,12 @@ const Gallery = () => {
                     gap: '1.5rem'
                 }}>
                     {images.map((img, idx) => (
-                        <div key={idx} style={{
-                            borderRadius: '15px',
-                            overflow: 'hidden',
+                        <div key={idx} className={`reveal img-zoom-container delay-${(idx % 5) + 1}`} style={{
                             height: '300px',
                             cursor: 'pointer',
-                            transition: 'var(--transition)',
                             boxShadow: '0 4px 15px rgba(0,0,0,0.05)'
-                        }}
-                            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
-                            onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                        >
-                            <img src={img} alt={`Gallery ${idx}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        }}>
+                            <img src={img} alt={`Gallery ${idx}`} className="img-zoom" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                     ))}
                 </div>

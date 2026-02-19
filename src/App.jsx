@@ -11,8 +11,30 @@ function App() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
+    const revealElements = () => {
+      const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      const windowHeight = window.innerHeight;
+      const revealPoint = 150;
+
+      reveals.forEach(reveal => {
+        const revealTop = reveal.getBoundingClientRect().top;
+        if (revealTop < windowHeight - revealPoint) {
+          reveal.classList.add('active');
+        }
+      });
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', revealElements);
+
+    // Initial check
+    revealElements();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', revealElements);
+    };
   }, []);
 
   return (
@@ -40,7 +62,7 @@ function App() {
           letterSpacing: '1px',
           transition: 'color 0.4s ease'
         }}>
-          LUMINA <span style={{ fontWeight: 300 }}>HOUSE</span>
+          Vermietung eines Hauses in Spanien
         </div>
         <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
           {['Experience', 'Gallery', 'Amenities', 'Location'].map((item) => (
@@ -77,7 +99,7 @@ function App() {
         color: 'white'
       }}>
         <div className="container">
-          <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: 'white' }}>LUMINA HOUSE</h2>
+          <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: 'white' }}>Vermietung eines Hauses in Spanien</h2>
           <p style={{ maxWidth: '600px', margin: '0 auto 2rem', opacity: 0.8 }}>
             An architectural masterpiece nestled in the heart of the coast, designed for those who value privacy, comfort, and the beauty of nature.
           </p>
@@ -86,7 +108,7 @@ function App() {
             <a href="#" style={{ opacity: 0.7 }}>Facebook</a>
             <a href="#" style={{ opacity: 0.7 }}>LinkedIn</a>
           </div>
-          <p style={{ opacity: 0.5, fontSize: '0.9rem' }}>&copy; 2026 Lumina Holiday House. All rights reserved.</p>
+          <p style={{ opacity: 0.5, fontSize: '0.9rem' }}>&copy; 2026 Vermietung eines Hauses in Spanien. All rights reserved.</p>
         </div>
       </footer>
     </div>
