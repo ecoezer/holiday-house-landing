@@ -11,18 +11,14 @@ const amenities = [
 
 const Amenities = () => {
     return (
-        <section id="amenities" style={{ padding: '6rem 2rem' }}>
-            <div className="container">
-                <h2 className="reveal" style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '3.5rem' }}>Curated Amenities</h2>
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                    gap: '2.5rem'
-                }}>
+        <section id="amenities" className="py-24 px-8 bg-transparent">
+            <div className="container mx-auto">
+                <h2 className="reveal text-center text-4xl mb-14 font-heading font-bold">Curated Amenities</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {amenities.map((item, idx) => (
-                        <div key={idx} className={`glass-card hover-lift reveal delay-${(idx % 5) + 1}`} style={{ textAlign: 'left', backgroundColor: '#fff', border: 'none', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem', color: 'var(--primary)' }}>{item.title}</h3>
-                            <p style={{ color: 'var(--text-muted)' }}>{item.desc}</p>
+                        <div key={idx} className={`reveal delay-${(idx % 5) + 1} bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-left`}>
+                            <h3 className="text-xl mb-3 text-primary font-heading font-bold">{item.title}</h3>
+                            <p className="text-text-muted font-body leading-relaxed">{item.desc}</p>
                         </div>
                     ))}
                 </div>

@@ -39,45 +39,20 @@ function App() {
 
   return (
     <div className="app">
-      <header style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        padding: scrolled ? '1rem 2rem' : '1.5rem 2rem',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        zIndex: 1000,
-        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(10px)' : 'none',
-        boxShadow: scrolled ? '0 2px 10px rgba(0,0,0,0.1)' : 'none',
-        transition: 'all 0.4s ease'
-      }}>
-        <div className="logo" style={{
-          fontFamily: 'var(--font-heading)',
-          fontSize: '1.5rem',
-          fontWeight: 700,
-          color: scrolled ? 'var(--primary)' : 'white',
-          letterSpacing: '1px',
-          transition: 'color 0.4s ease'
-        }}>
+      <header className={`fixed top-0 left-0 w-full flex justify-between items-center z-[1000] transition-all duration-500 ease-in-out ${scrolled ? 'py-4 px-8 bg-white/95 backdrop-blur-md shadow-lg' : 'py-6 px-8 bg-transparent'
+        }`}>
+        <div className={`font-heading text-2xl font-bold tracking-wider transition-colors duration-500 ${scrolled ? 'text-primary' : 'text-white'
+          }`}>
           Vermietung eines Hauses in Spanien
         </div>
-        <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+        <nav className="flex gap-8 items-center">
           {['Experience', 'Gallery', 'Amenities', 'Location'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} style={{
-              color: scrolled ? 'var(--text-dark)' : 'white',
-              fontSize: '0.9rem',
-              fontWeight: 500,
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              transition: 'color 0.4s ease'
-            }}>
+            <a key={item} href={`#${item.toLowerCase()}`} className={`text-sm font-medium uppercase tracking-widest transition-colors duration-500 ${scrolled ? 'text-text-dark hover:text-accent' : 'text-white hover:text-accent'
+              }`}>
               {item}
             </a>
           ))}
-          <button className="btn btn-primary" style={{ padding: '0.6rem 1.5rem', fontSize: '0.9rem' }}>
+          <button className="btn btn-primary !py-2.5 !px-6 text-sm">
             Book Now
           </button>
         </nav>
@@ -92,23 +67,18 @@ function App() {
         <Booking />
       </main>
 
-      <footer style={{
-        padding: '6rem 2rem',
-        textAlign: 'center',
-        backgroundColor: 'var(--primary)',
-        color: 'white'
-      }}>
-        <div className="container">
-          <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: 'white' }}>Vermietung eines Hauses in Spanien</h2>
-          <p style={{ maxWidth: '600px', margin: '0 auto 2rem', opacity: 0.8 }}>
+      <footer className="py-24 px-8 footer-gradient text-white text-center">
+        <div className="container mx-auto">
+          <h2 className="text-3xl mb-6 text-white font-heading font-bold">Vermietung eines Hauses in Spanien</h2>
+          <p className="max-w-2xl mx-auto mb-8 opacity-80 leading-relaxed font-body">
             An architectural masterpiece nestled in the heart of the coast, designed for those who value privacy, comfort, and the beauty of nature.
           </p>
-          <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', marginBottom: '3rem' }}>
-            <a href="#" style={{ opacity: 0.7 }}>Instagram</a>
-            <a href="#" style={{ opacity: 0.7 }}>Facebook</a>
-            <a href="#" style={{ opacity: 0.7 }}>LinkedIn</a>
+          <div className="flex gap-8 justify-center mb-12">
+            <a href="#" className="opacity-70 hover:opacity-100 transition-opacity duration-300">Instagram</a>
+            <a href="#" className="opacity-70 hover:opacity-100 transition-opacity duration-300">Facebook</a>
+            <a href="#" className="opacity-70 hover:opacity-100 transition-opacity duration-300">LinkedIn</a>
           </div>
-          <p style={{ opacity: 0.5, fontSize: '0.9rem' }}>&copy; 2026 Vermietung eines Hauses in Spanien. All rights reserved.</p>
+          <p className="opacity-50 text-sm font-body font-light">&copy; 2026 Vermietung eines Hauses in Spanien. All rights reserved.</p>
         </div>
       </footer>
     </div>
